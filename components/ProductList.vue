@@ -1,15 +1,24 @@
 <template>
   <div class="product-list">
-    <div v-if="filteredProducts.length" class="products">
+    <div v-if="filteredProducts.length" class="products grid grid-cols-4 gap-2">
       <div
         v-for="product in filteredProducts"
         :key="product.id"
-        class="product-item"
+        class="product-item bg-gray-100 p-3 rounded-lg"
       >
+        <NuxtLink :to="`/product/${product.id}`">
+          <img
+            src="https://serverflow.ru/upload/resize_cache/iblock/0a8/y9qujxxtz8zs392zw5r7vzm1rohxuf2u/400_300_0/ba55ac6d-thumbnail-510x510-70.webp"
+          />
+        </NuxtLink>
         <h3>{{ product.name }}</h3>
         <p>{{ product.description }}</p>
         <p>{{ product.price }} руб.</p>
-        <NuxtLink :to="`/product/${product.id}`">Подробнее</NuxtLink>
+        <NuxtLink
+          :to="`/product/${product.id}`"
+          class="w-full bg-[#3f3f3f] text-center text-white block py-1 mt-5 ease-linear duration-150 hover:bg-[#6873ff]"
+          >Подробнее</NuxtLink
+        >
         <!-- Ссылка на страницу товара -->
       </div>
     </div>
@@ -42,17 +51,3 @@ const filteredProducts = computed(() => {
   });
 });
 </script>
-
-<style scoped>
-.product-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-.product-item {
-  width: 100%;
-  margin: 1%;
-  border: 1px solid #ccc;
-  padding: 10px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-</style>

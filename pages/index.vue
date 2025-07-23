@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Product Catalog</h1>
+    <h1 class="text-3xl pb-8">Каталог продукции</h1>
     <Filters @update-filters="updateFilters" />
     <ProductList :products="products" :filters="filters" />
   </div>

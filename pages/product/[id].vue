@@ -1,6 +1,9 @@
 <template>
   <div v-if="product">
     <h1>{{ product.name }}</h1>
+    <img
+      src="https://serverflow.ru/upload/resize_cache/iblock/0a8/y9qujxxtz8zs392zw5r7vzm1rohxuf2u/400_300_0/ba55ac6d-thumbnail-510x510-70.webp"
+    />
     <p>{{ product.description }}</p>
     <p><strong>Цена:</strong> {{ product.price }} руб.</p>
     <p><strong>Категория:</strong> {{ product.category }}</p>

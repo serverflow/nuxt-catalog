@@ -2,11 +2,11 @@
   <div class="filters">
     <input
       v-model="search"
-      placeholder="Search products"
+      placeholder="Поиск товаров"
       @input="updateFilters"
     />
     <select v-model="category" @change="updateFilters">
-      <option value="">All Categories</option>
+      <option value="">Все категории</option>
       <option value="electronics">Electronics</option>
       <option value="clothing">Clothing</option>
       <option value="furniture">Furniture</option>

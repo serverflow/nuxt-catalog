@@ -7,13 +7,11 @@
         class="product-item bg-gray-100 p-3 rounded-lg"
       >
         <NuxtLink :to="`/product/${product.id}`">
-          <img
-            src="https://serverflow.ru/upload/resize_cache/iblock/0a8/y9qujxxtz8zs392zw5r7vzm1rohxuf2u/400_300_0/ba55ac6d-thumbnail-510x510-70.webp"
-          />
+          <img :src="`${product.image}`" />
         </NuxtLink>
-        <h3>{{ product.name }}</h3>
-        <p>{{ product.description }}</p>
-        <p>{{ product.price }} руб.</p>
+        <h3 class="py-2">{{ product.name }}</h3>
+        <!-- <p>{{ product.description }}</p> -->
+        <p class="text-lg">{{ formatPrice(product.price) }} руб.</p>
         <NuxtLink
           :to="`/product/${product.id}`"
           class="w-full bg-[#3f3f3f] text-center text-white block py-1 mt-5 ease-linear duration-150 hover:bg-[#6873ff]"
@@ -50,4 +48,11 @@ const filteredProducts = computed(() => {
     return matches;
   });
 });
+
+function formatPrice(price) {
+  return price.toLocaleString("ru-RU", {
+    maximumFractionDigits: 0,
+    useGrouping: true,
+  });
+}
 </script>
